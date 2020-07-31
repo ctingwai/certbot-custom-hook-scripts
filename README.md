@@ -14,7 +14,7 @@ certbot certonly -n --manual --manual-public-ip-logging-ok --preferred-challenge
 
 With this command, it's possible to schedule certbot renewal using `cron` with the combination such as:
 ```
-certbot certonly -n --manual --manual-public-ip-logging-ok --preferred-challenges=dns --manual-auth-hook /etc/letsencrypt/certbot-custom-hook-scripts/cpanel/authenticator.sh --manual-cleanup-hook /etc/letsencrypt/certbot-custom-hook-scripts/cpanel/cleanup.sh -d example.com -d *.example.com && systemctl restart httpd
+certbot certonly -n --manual --manual-public-ip-logging-ok --preferred-challenges=dns --manual-auth-hook /etc/letsencrypt/certbot-custom-hook-scripts/cpanel/authenticator.sh --manual-cleanup-hook /etc/letsencrypt/certbot-custom-hook-scripts/cpanel/cleanup.sh --post-hook "systemctl restart httpd" -d example.com -d *.example.com
 ```
 
 ## References
